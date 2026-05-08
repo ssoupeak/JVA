@@ -1,6 +1,6 @@
 package Idle;
 
-public class NXDE {
+public class TomBoy {
 	public static void main(String[] args) {
         int month = 8;
         String monthString = "";
