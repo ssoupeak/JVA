@@ -1,4 +1,4 @@
-package KwangYa;
+package dads;
 
 import java.util.Scanner;
 
@@ -26,9 +26,27 @@ class Book {
             return "대출 불가";
         } else {
             borrow = true;
-            return "대출 가능";
+            return "대출 완료";
         }
     }
+}
+
+class Novel extends Book{
+	String genre;
+	
+	Novel(String title, String author, int year, String genre) {
+		super(title,author,year);
+		this.genre = genre;
+	}
+}
+
+class Science extends Book{
+	int level;
+	
+	Science(String title, String author, int year, int level) {
+		super(title,author,year);
+		this.level = level;
+	}
 }
 
 public class das {
@@ -43,12 +61,14 @@ public class das {
 
         System.out.print("출판년도 입력: ");
         int year = sc.nextInt();
-
-        Book b1 = new Book(title, author, year);
-        b1.show();
-
-        System.out.println("대출 상태: " + b1.borrowOf());
-
         sc.close();
+
+        Book[] book = new Book[2];
+        book[0] = new Novel(title,author,year,"힐링");
+        book[1] = new Science("양자컴퓨터","누군가", 2025, 3);
+        
+        for(int i=0; i < book.length; i++) {
+        	book[i].show();
+        }
     }
 }
